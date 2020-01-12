@@ -1,14 +1,12 @@
-
-\usepackage[comma,authoryear]{natbib}
 \usepackage{float}
 \usepackage{graphicx}
 \usepackage{setspace}
+\usepackage{environ}
 % \usepackage{kpfonts}
 \usepackage{textcomp}
 % \usepackage{fullpage}
 \usepackage{url}
 \usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
-%\usepackage{mdframed}  % not availble on ubuntu
 
 % -- font styles
 \usepackage{tgtermes}
@@ -24,7 +22,6 @@
 
 % special math formatting
 \usepackage{amsmath}
-
 \floatstyle{ruled}
 
 % -- structural elements
@@ -42,11 +39,11 @@
 
 \usepackage{caption}
 % -- configure captions for figures
-\DeclareCaptionFormat{listing}{\par\hrule #1#2#3}
+\DeclareCaptionFormat{listing}{\par #1#2#3}
 \captionsetup[figure]{%
   format=listing, 
   singlelinecheck=false, 
-  margin=00pt, 
+  margin=30pt, 
   font={it,footnotesize,centering}
 }
 
@@ -63,16 +60,6 @@
 \def\printcitefinish{\egroup$}
 \def\printcitenote#1{\hbox{\sevenrm\space (#1)}}
 
-
-% TODO: mdframed doesn't work well with ubuntu
-% \newenvironment{aside}
-%   {\begin{mdframed}[style=0,%
-%       leftline=false,rightline=false,leftmargin=2em,rightmargin=2em,%
-%           innerleftmargin=0pt,innerrightmargin=0pt,linewidth=0.75pt,%
-%       skipabove=25pt,skipbelow=25pt]\small}
-%   {\end{mdframed}}
-
-
 %% Bibliography configuration
 %% ------------------------------
 \bibliographystyle{apalike}
@@ -81,6 +68,11 @@
 \def\@biblabel#1{}
 \makeatother
 
+% Creating environment for no fleqn
+\makeatletter
+\NewEnviron{nofleqn}[1]{\@fleqnfalse\begin{#1}\BODY\end{#1}}
+\makeatother
+% e.g \begin{nofleqn}{equation}
 
 \lstset{
   %framesep=5pt,
@@ -89,7 +81,7 @@
   %postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookrightarrow}},
   breakatwhitespace=true,
   %numbers=left,
-  language=Java,
+  language=MATLAB,
   basicstyle=\footnotesize\ttfamily,
   numberstyle=\footnotesize\ttfamily,
   %numbersep=10pt,
@@ -108,10 +100,5 @@
   %backgroundcolor=\color{LightGray!.50}
 }
 \lstloadlanguages{
-  Java
+    MATLAB
 }
-
-
-% Hyphenation rules ------------
-%% \hyphenation{Fire-Detection-System}
-%% \hyphenation{Emergency-Communication-System}
