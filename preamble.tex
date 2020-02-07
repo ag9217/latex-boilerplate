@@ -7,6 +7,9 @@
 % \usepackage{fullpage}
 \usepackage{url}
 \usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage[outdir=./figures]{epstopdf}
+\usepackage[left=0.55in,top=0.8in,right=0.55in,bottom=0.8in]{geometry} % Document margins
+\usepackage[none]{hyphenat} % remove hypenating
 
 % -- font styles
 \usepackage{tgtermes}
@@ -39,20 +42,21 @@
 
 \usepackage{caption}
 % -- configure captions for figures
-\DeclareCaptionFormat{listing}{\par\hrule #1#2#3}
+\DeclareCaptionFormat{listing}{#1#2#3}
 \captionsetup[figure]{%
   format=listing, 
   singlelinecheck=false, 
-  margin=30pt, 
-  font={it,footnotesize,centering}
+  margin=20pt, 
+  skip=0pt,
+  font={footnotesize,centering}
 }
 
-\parskip 12pt
+\setlength{\belowcaptionskip}{-10pt}
 
 % page margins
-\setlength{\textheight}{22cm}
-\setlength{\oddsidemargin}{0.25in}
-\setlength{\textwidth}{6in}
+% \setlength{\textheight}{22cm}
+% \setlength{\oddsidemargin}{0.25in}
+% \setlength{\textwidth}{6in}
 
 % I don't know what this does
 \def\printcitestart{\unskip $^\bgroup}
