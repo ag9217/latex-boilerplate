@@ -7,12 +7,14 @@
 % \usepackage{fullpage}
 \usepackage{url}
 \usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
-\usepackage[outdir=./figures]{epstopdf}
+\usepackage[outdir=./figures/]{epstopdf}
 \usepackage[left=0.75in,top=0.8in,right=0.75in,bottom=0.8in]{geometry} % Document margins
 \usepackage[none]{hyphenat} % remove hypenating
+\usepackage{cancel}
 
 % -- font styles
 \usepackage{tgtermes}
+\usepackage{amsfonts}
 % \usepackage[lf]{venturis}
 % \usepackage{times}
 % \usepackage[sc]{mathpazo} % Palatino (very readable)
@@ -22,6 +24,13 @@
 % \usepackage[bitstream-charter]{mathdesign}
 % \usepackage{mathptmx}
 
+% allowing smaller sub-sub-sub sections
+% use \paragraph for subsubsubsection
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+
+% paragraph styling
+\setlength{\parindent}{0pt}
 
 % special math formatting
 \usepackage{amsmath}
@@ -50,7 +59,6 @@
   skip=0pt,
   font={footnotesize,centering}
 }
-
 \setlength{\belowcaptionskip}{-10pt}
 
 % page margins
